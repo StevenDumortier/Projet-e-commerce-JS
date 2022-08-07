@@ -11,8 +11,9 @@ export class ProductsService {
     });
   }
 
-  fetchProductsById(id) {
-    return Api.get(this.url + "/" + id).then(function (response) {
+  fetchProductsByCategory(category) {
+    console.log(this.url + "?category=" + category)
+    return Api.get(this.url + "?category=" + category).then(function (response) {
       return response.data;
     });
   }

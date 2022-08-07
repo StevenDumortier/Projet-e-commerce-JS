@@ -10,6 +10,7 @@ export class ProductCardsList {
     for (let product of this.products) {
       const card = ProductCard(product);
       this.$productCardsList.appendChild(card);
+      console.log(product)
     }
   }
 }
