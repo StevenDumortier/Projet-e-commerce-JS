@@ -1,6 +1,6 @@
 import { Api } from "./api.config.js";
 
-export class ProductService {
+export class ProductsService {
   constructor() {
     this.url = "/products";
   }

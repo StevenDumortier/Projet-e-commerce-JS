@@ -1,13 +1,23 @@
+import { CategoryDropdown } from "./components/navBar/categorysDropdown/categorys_dropdown.js";
 import { ProductCardsList } from "./components/productCardsList/product_cards_list.js";
-import { ProductService } from "./service/products.service.js";
+import { CategorysService } from "./service/categorys.service.js";
+import { ProductsService } from "./service/products.service.js";
 
 class HomePage {
   constructor() {
-    this.productsService = new ProductService();
+    this.categorysService = new CategorysService();
+    this.categorysDropdown = [];
+    this.productsService = new ProductsService();
     this.productCardsList = [];
   }
 
-  async main() {
+  async mainCategorysDropdown() {
+    this.categorys = await this.categorysService.fetchCategorys();
+    const categorysDropdown = new CategoryDropdown(this.categorys);
+    categorysDropdown.render();
+  }
+
+  async mainProductsList() {
     this.products = await this.productsService.fetchProducts();
     const productCardsList = new ProductCardsList(this.products);
     productCardsList.render();
@@ -15,7 +25,10 @@ class HomePage {
 }
 
 const homePage = new HomePage();
-homePage.main();
+homePage.mainCategorysDropdown();
+homePage.mainProductsList();
+
+
 
 
 
