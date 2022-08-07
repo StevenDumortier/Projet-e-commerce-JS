@@ -7,9 +7,12 @@ class HomePage {
   constructor() {
     this.categorysService = new CategorysService();
     this.categorysDropdown = [];
+
     this.productsService = new ProductsService();
     this.productCardsList = [];
   }
+
+
 
   async mainCategorysDropdown() {
     this.categorys = await this.categorysService.fetchCategorys();
@@ -17,25 +20,26 @@ class HomePage {
     categorysDropdown.render();
   }
 
+
+
   async mainProductsList() {
-  
     const urlParam = new URLSearchParams(location.search);
     const category = urlParam.get("category");
 
-    if(!category){
-    this.products = await this.productsService.fetchProducts();
+    if (!category) {
+      this.products = await this.productsService.fetchProducts();
+    } else {
+      this.products = await this.productsService.fetchProductsByCategory(
+        category
+      );
     }
-    else{
-      this.products = await this.productsService.fetchProductsByCategory(category);
-    }
-      
-   
     const productCardsList = new ProductCardsList(this.products);
     productCardsList.render();
+
   }
 }
+
 
 const homePage = new HomePage();
 homePage.mainCategorysDropdown();
 homePage.mainProductsList();
-
