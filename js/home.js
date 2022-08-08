@@ -33,13 +33,24 @@ class HomePage {
         category
       );
     }
+
     const productCardsList = new ProductCardsList(this.products);
     productCardsList.render();
 
-  }
-}
 
+  }
+
+ 
+
+
+  }
+
+      
+    
 
 const homePage = new HomePage();
 homePage.mainCategorysDropdown();
 homePage.mainProductsList();
+
+
+
