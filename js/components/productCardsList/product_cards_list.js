@@ -1,3 +1,4 @@
+import { FilterCardList } from "../navBar/searchBar/filterCardList.js";
 import { ProductCard } from "./product_card.js";
 
 export class ProductCardsList {
@@ -8,27 +9,13 @@ export class ProductCardsList {
 
   render() {
 
-
     for (let product of this.products) {
+      console.log(product)
       const card = ProductCard(product);
       this.$productCardsList.appendChild(card);
-      console.log((card.innerText))
-
-        const search = document.getElementById("search");
-        search.addEventListener("keyup", function(e) {
-        const searchString = e.target.value.toLowerCase();
-       // console.log(searchString)
-       //const isVisible = card.innerText.toLowerCase().includes(searchString)
-      const isVisible = product.name.toLowerCase().includes(searchString)
-      //  console.log((product.name))
-        card.classList.toggle("hide",!isVisible)
-      }
-      )
-
-
-
-
-
+      console.log((card.innerText));
+      FilterCardList(product,card);
+      
 
       }
       

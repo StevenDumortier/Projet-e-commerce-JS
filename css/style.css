@@ -1,3 +1,36 @@
 .hide{
     display: none;
 }
+
+.productDetails {
+    float: left;
+    clear: left;
+    margin-bottom: 1em;
+  }
+
+  .productDetails>img{
+    width:auto; 
+    height:700px;
+    float: left;
+    margin-left : 250px;
+  }
+  .productDetails>div{
+    float:right;
+    margin-left: 25px;
+    width: 900px;
+  }
+  
+  label{
+    margin-right: 5px;
+  }
+
+  .contenair{
+    margin-left:20px;
+  }
+
+  .card-img-top{
+    width:100%; 
+    height:250px;
+  }
+
+
